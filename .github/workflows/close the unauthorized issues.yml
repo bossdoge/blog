@@ -7,7 +7,7 @@ jobs:
   authorCheck:
     runs-on: ubuntu-latest
     steps:
-      - if: github.event.issue.author.login = 'bossdoge'
+      - if: github.event.issue.author.login == 'bossdoge'
         name: Close Issue
         uses: peter-evans/close-issue@v1
         with:
