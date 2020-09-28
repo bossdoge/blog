@@ -7,11 +7,12 @@ jobs:
   authorCheck:
     runs-on: ubuntu-latest
     steps:
-      - if: github.event.issue.author.isSiteAdmin != 'true'
+      - if: github.event.issue.author.login != 'bossdoge'
         name: Close Issue
         uses: peter-evans/close-issue@v1
         with:
           #token: ${{ secrets.GITHUB_TOKEN }}
           #issue-number: 1
           comment: |
+            Unauthorized person is not allowed to create a new issue in this repository.
             Auto-closing this issue.
