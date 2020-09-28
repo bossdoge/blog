@@ -7,12 +7,11 @@ jobs:
   authorCheck:
     runs-on: ubuntu-latest
     steps:
-      - if: startsWith(github.event.issue.title, 'ABC-') = 'true'
+      - if: github.event.issue.author.isSiteAdmin != 'true'
         name: Close Issue
         uses: peter-evans/close-issue@v1
         with:
           #token: ${{ secrets.GITHUB_TOKEN }}
           #issue-number: 1
           comment: |
-            Issue title starts with 'ABC-'.
             Auto-closing this issue.
